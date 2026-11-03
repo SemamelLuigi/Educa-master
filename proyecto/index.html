@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Educativa Buena Fe</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="contenedor">
+
+    <!-- INICIO -->
+    <div id="inicio" class="pantalla activa">
+      <div class="logo">📚</div>
+      <h1>Trivia Educativa<br><span>Buena Fe</span></h1>
+      <p class="subtitulo">Herramienta didáctica para reforzar conocimientos de secundaria</p>
+      <button class="btn-principal" onclick="mostrarInstrucciones()">Comenzar</button>
+      
+      <div class="qr-seccion">
+        <p class="qr-titulo">Acceso rápido</p>
+        <div class="qr-caja">
+          <div class="qr-placeholder">
+            <span>QR</span>
+            <small>Coloca aquí tu código QR</small>
+          </div>
+        </div>
+        <p class="qr-texto">Escanea para abrir el juego<br>(funciona sin internet una vez descargado)</p>
+      </div>
+    </div>
+
+    <!-- INSTRUCCIONES -->
+    <div id="instrucciones" class="pantalla">
+      <h1>¿Cómo se juega?</h1>
+      <ul class="instrucciones">
+        <li>Elige una materia de secundaria.</li>
+        <li>Selecciona cuántas preguntas deseas responder.</li>
+        <li>Las preguntas se presentan de forma aleatoria.</li>
+        <li>Si te equivocas puedes reintentar solo esa pregunta.</li>
+        <li>Puedes cambiar de materia en cualquier momento.</li>
+      </ul>
+      <button class="btn-principal" onclick="mostrarMaterias()">Elegir materia</button>
+      <button class="btn-atras" onclick="mostrarInicio()">← Volver</button>
+    </div>
+
+    <!-- MATERIAS -->
+    <div id="materias" class="pantalla">
+      <h1>Elige una materia</h1>
+      <p class="subtitulo">Selecciona el área que deseas practicar</p>
+      
+      <div class="lista-materias">
+        <button class="btn-materia sociales" onclick="seleccionarMateria('sociales')">🌍 Ciencias Sociales</button>
+        <button class="btn-materia biologia" onclick="seleccionarMateria('biologia')">🧬 Biología</button>
+        <button class="btn-materia quimica" onclick="seleccionarMateria('quimica')">⚗️ Química</button>
+        <button class="btn-materia fisica" onclick="seleccionarMateria('fisica')">⚡ Física</button>
+        <button class="btn-materia matematicas" onclick="seleccionarMateria('matematicas')">🔢 Matemáticas</button>
+        <button class="btn-materia lenguaje" onclick="seleccionarMateria('lenguaje')">📚 Lenguaje</button>
+        <button class="btn-materia historia" onclick="seleccionarMateria('historia')">🏛️ Historia</button>
+        <button class="btn-materia geografia" onclick="seleccionarMateria('geografia')">🗺️ Geografía</button>
+        <button class="btn-materia artes" onclick="seleccionarMateria('artes')">🎨 Artes Plásticas</button>
+        <button class="btn-materia musica" onclick="seleccionarMateria('musica')">🎵 Música</button>
+      </div>
+      
+      <button class="btn-atras" onclick="mostrarInstrucciones()">← Volver</button>
+    </div>
+
+    <!-- CANTIDAD -->
+    <div id="cantidad" class="pantalla">
+      <h1>¿Cuántas preguntas?</h1>
+      <p class="subtitulo" id="texto-materia-elegida">Materia seleccionada</p>
+      <div class="lista-cantidad" id="opciones-cantidad"></div>
+      <button class="btn-atras" onclick="mostrarMaterias()">← Volver a materias</button>
+    </div>
+
+    <!-- JUEGO -->
+    <div id="juego" class="pantalla">
+      <div class="info-juego">
+        <span id="nombre-materia" class="badge-materia"></span>
+        <span>Pregunta <span id="num-pregunta">1</span> de <span id="total-preguntas">10</span></span>
+      </div>
+      
+      <div class="barra">
+        <div class="barra-progreso" id="barra"></div>
+      </div>
+      
+      <div class="pregunta" id="texto-pregunta"></div>
+      <div class="opciones" id="opciones"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="puntaje">Puntos: <span id="puntos">0</span></div>
+      
+      <div class="botones-juego">
+        <button id="btn-siguiente" class="btn-principal" style="display:none;" onclick="siguientePregunta()">Siguiente →</button>
+        <button id="btn-reintentar" class="btn-reintentar" style="display:none;" onclick="reintentarPregunta()">Reintentar esta pregunta</button>
+        <button class="btn-reiniciar" onclick="reiniciar()">Reiniciar todo</button>
+        <button class="btn-atras" onclick="mostrarMaterias()">← Materias</button>
+      </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div id="resultado" class="pantalla">
+      <div class="emoji-grande" id="emoji-final">🎉</div>
+      <h1>¡Resultado final!</h1>
+      <p class="mensaje-final" id="mensaje-final"></p>
+      
+      <div class="caja-puntaje">
+        <p>Tu puntaje</p>
+        <p class="puntaje-grande"><span id="puntaje-final">0</span> / <span id="max-puntos">10</span></p>
+      </div>
+      
+      <button class="btn-principal" onclick="reiniciar()">Jugar de nuevo</button>
+      <button class="btn-atras" onclick="mostrarMaterias()">← Elegir otra materia</button>
+      <button class="btn-atras" onclick="mostrarInicio()">← Inicio</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
