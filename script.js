@@ -359,7 +359,7 @@ function reproducirVozMeme(porcentaje) {
     let frase = "";
 
     if (porcentaje === 12) {
-      frase = "¡YANET Y SORIA POR SIEMPRE!";
+      frase = "¡ERES BRILLANTE!";
     } else if (porcentaje >= 6) {
       frase = "¡Ufff! ¡Qué máquina! ¡Muy buen trabajo!";
     } else if (porcentaje >= 3) {
