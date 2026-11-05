@@ -394,19 +394,26 @@ h1 span {
   justify-content: center;
   margin-bottom: 8px;
 }
-
 .qr-placeholder {
-  width: 120px;
-  height: 120px;
-  background: #f7fafc;
-  border: 2px dashed #cbd5e0;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #a0aec0;
-  font-size: 0.8rem;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 0;
+    border-radius: 8px;
 }
 
 .qr-placeholder span {
